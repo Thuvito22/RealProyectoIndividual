@@ -1,5 +1,36 @@
-GET http://localhost:8080/webapi/ordenador
+
+
+
+POST http://localhost:3306/webapi/ordenador
+Content-Type: application/json
 
 ###
+######## Buscartodos
+GET http://localhost:8080/webapi/ordenador
 
-DELETE http://localhost:8080/webapi/ordenador
+
+
+######## Insetar
+POST http://localhost:8080/webapi/ordenador
+content-type: application/json
+
+{
+"numserie": "06", 
+"marca": "prueba1", 
+"modelo": "prueba1", 
+"precio": 1999.99, 
+}
+
+######### Borrar
+### se puede cambiar los paramentros en la url cambiando precio por marca por ejemplo
+por marca por ejemplo
+DELETE http://localhost:8080/webapi/ordenador/04
+
+######### BuscarOrdenados DESCENDENTE
+
+GET http://localhost:8080/webapi/ordenador/campo/precio/direccion/DESC
+
+
+######### BuscarOrdenados ASCENDENTE
+
+GET http://localhost:8080/webapi/ordenador/campo/precio/direccion/ASC

@@ -42,14 +42,17 @@ public class OrdenadorRestController {
    ordenadorRepository.borrar(numserie);
  }
 
- @GetMapping ("/campo/{campo}/direccion/{direccion}")
- @CrossOrigin(origins = "http://localhost:4200")
- public List<Ordenador> buscarOrdenados(@RequestParam String campo, @RequestParam String direccion) {
-    return ordenadorRepository.buscarOrdenados(campo,direccion);
-    
- }
+ @GetMapping("/campo/{campo}/direccion/{direccion}")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public List<Ordenador> buscarOrdenados (@PathVariable String campo,@PathVariable String direccion){
+
+        return ordenadorRepository.buscarOrdenados(campo,direccion);
+    }
 
 
 
 
 }
+
+
+

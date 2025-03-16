@@ -1,5 +1,6 @@
 package es.cie.fernando.springbootback.repositories;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +15,12 @@ import es.cie.fernando.springbootback.negocio.Ordenador;
     @Repository
 @Qualifier("jdbc")
 public class OrdenadorRepositoryJDBC implements OrdenadorRepository {
+
+
+    
     @Autowired
     private JdbcTemplate plantilla;
+
 
     @Override
     public List<Ordenador> buscarTodos() {
@@ -23,11 +28,20 @@ public class OrdenadorRepositoryJDBC implements OrdenadorRepository {
       return plantilla.query("select * from ordenador", new OrdenadorRowMapper());
     }
 
-    @Override
+     @Override
     public List<Ordenador> buscarOrdenados(String campo, String direccion) {
-       
-        return plantilla.query("select * from ordenador order by ? ?", new OrdenadorRowMapper(), campo, direccion);
+       List<String> validCampos = Arrays.asList("numserie", "marca", "modelo", "precio"); 
+    List<String> validDirecciones = Arrays.asList("ASC", "DESC"); 
+
+    if (!validCampos.contains(campo) || !validDirecciones.contains(direccion)) {
+        throw new IllegalArgumentException("Parametros invalidos");
     }
+
+    String sql = String.format("SELECT * FROM ordenador ORDER BY %s %s", campo, direccion);
+    
+    return plantilla.query(sql, new OrdenadorRowMapper()); 
+    }
+
 
     @Override
     public void insertar(Ordenador ordenador) {
@@ -45,8 +59,8 @@ public class OrdenadorRepositoryJDBC implements OrdenadorRepository {
         
         plantilla.update("delete from ordenador where numserie = ?", numserie);
     }
-
 }
+
 
 
  
