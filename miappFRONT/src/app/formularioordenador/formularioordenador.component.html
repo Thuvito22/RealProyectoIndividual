@@ -15,7 +15,7 @@
         <!-- Campo Marca -->
         <div class="col-md-6 mb-3">
           <label for="marca" class="form-label">Marca</label>
-          <select class="form-select" id="marca" name="marca" [(ngModel)]="ordenador.marca" required>
+          <select class="form-select" id="marca" name="marca" [(ngModel)]="ordenador.marca" (change)="onMarcaChange()" required>
             <option value="" disabled selected>Seleccione la marca</option>
             <option *ngFor="let marca of marcas" [value]="marca">{{ marca }}</option>
           </select>
@@ -26,7 +26,7 @@
         <!-- Campo Modelo -->
         <div class="col-md-6 mb-3">
           <label for="modelo" class="form-label">Modelo</label>
-          <select class="form-select" id="modelo" name="modelo" [(ngModel)]="ordenador.modelo" required>
+          <select class="form-select" id="modelo" name="modelo" [(ngModel)]="ordenador.modelo" required [disabled]="!modelos.length">
             <option value="" disabled selected>Seleccione el modelo</option>
             <option *ngFor="let modelo of modelos" [value]="modelo">{{ modelo }}</option>
           </select>
