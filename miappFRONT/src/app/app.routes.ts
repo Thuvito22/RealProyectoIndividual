@@ -4,7 +4,7 @@ import { ListaordenadorComponent } from './listaordenador/listaordenador.compone
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppComponent } from './app.component';
+import { AppComponent } from './app.component'; // Importa AppComponent correctamente
 
 export const routes: Routes = [
   { path: 'listaordenador', component: ListaordenadorComponent },
@@ -13,17 +13,18 @@ export const routes: Routes = [
 ];
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        FormularioordenadorComponent,
-        ListaordenadorComponent
-    ],
-    imports: [
-        BrowserModule,
-        FormsModule,
-        RouterModule.forRoot(routes)
-    ],
-    providers: [],
-    bootstrap: [AppComponent]
+  declarations: [
+    // No declares AppComponent aquí
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    RouterModule.forRoot(routes),
+    FormularioordenadorComponent, // Importa los componentes standalone
+    ListaordenadorComponent,
+    AppComponent // Agrega AppComponent aquí en imports
+  ],
+  providers: [],
+  bootstrap: [AppComponent] // Lo mantienes en bootstrap
 })
 export class AppModule { }

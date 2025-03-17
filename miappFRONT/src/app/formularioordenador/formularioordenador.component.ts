@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common'; // Asegúrate de que CommonModule esté importado
 import { Ordenador } from '../ordenador';
 import { OrdenadorRestService } from '../ordenador-rest.service';
 import { Router } from '@angular/router';
@@ -8,15 +9,17 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-formularioordenador',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './formularioordenador.component.html',
   styleUrls: ['./formularioordenador.component.scss']
 })
 export class FormularioordenadorComponent {
-
-  ordenador: Ordenador = {} as Ordenador; 
+  ordenador: Ordenador = {} as Ordenador;
   marcas = ['HP', 'Dell', 'Lenovo', 'Asus', 'Acer'];
   modelos = ['Modelo A', 'Modelo B', 'Modelo C', 'Modelo D', 'Modelo E'];
+  
+  // Agrega esta propiedad para almacenar el mensaje de éxito
+  successMessage: string | null = null; // Definir successMessage
 
   constructor(
     private readonly ordenadorRestService: OrdenadorRestService,
@@ -35,13 +38,14 @@ export class FormularioordenadorComponent {
 
     this.ordenadorRestService.insertar(this.ordenador).subscribe({
       next: (datos) => {
+        this.successMessage = 'Ordenador guardado con éxito'; // Asigna el mensaje de éxito
         Swal.fire({
           title: 'Éxito',
-          text: 'Ordenador guardado con éxito',
+          text: this.successMessage,
           icon: 'success',
           confirmButtonText: 'OK'
         }).then(() => {
-          this.router.navigate(['/listaordenador']);  // con this router navigate lo mandamos otra vez al array
+          this.router.navigate(['/listaordenador']);
         });
       },
       error: (error) => {

@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet } from '@angular/router'; // Asegúrate de importar RouterOutlet
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true, // Establece el componente como standalone
+  imports: [RouterOutlet], // Importa RouterOutlet para el enrutamiento
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss'] // Cambié `styleUrl` a `styleUrls`
 })
 export class AppComponent {
   title = 'miappFRONT';
