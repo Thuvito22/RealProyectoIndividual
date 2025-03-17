@@ -16,7 +16,13 @@ import Swal from 'sweetalert2';
 export class FormularioordenadorComponent {
   ordenador: Ordenador = {} as Ordenador;
   marcas = ['HP', 'Dell', 'Lenovo', 'Asus', 'Acer'];
-  modelos = ['Modelo A', 'Modelo B', 'Modelo C', 'Modelo D', 'Modelo E'];
+modelos = [
+  'HP Spectre x360', 'HP Envy', 'HP Pavilion', 'HP Omen', 'HP EliteBook',
+  'Dell XPS 13', 'Dell Inspiron 15', 'Dell Latitude 7420', 'Dell G5 15', 'Dell Alienware m15',
+  'Lenovo ThinkPad X1 Carbon', 'Lenovo Yoga 9i', 'Lenovo Legion 5', 'Lenovo IdeaPad 3', 'Lenovo Chromebook Duet',
+  'Asus ZenBook 14', 'Asus VivoBook S15', 'Asus ROG Zephyrus G14', 'Asus TUF Gaming A15', 'Asus Chromebook Flip',
+  'Acer Swift 3', 'Acer Aspire 5', 'Acer Nitro 5', 'Acer Predator Helios 300', 'Acer Chromebook Spin 713'
+];
 
   // Agrega esta propiedad para almacenar el mensaje de éxito
   successMessage: string | null = null; // Definir successMessage
@@ -74,5 +80,10 @@ export class FormularioordenadorComponent {
         }
       }
     });
+  }
+
+  // Función para navegar a la lista de ordenadores
+  public volver(): void {
+    this.router.navigate(['/listaordenador']);  // Redirige a la página de lista de ordenadores
   }
 }
