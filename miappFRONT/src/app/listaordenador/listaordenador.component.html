@@ -1,15 +1,31 @@
 <!DOCTYPE html>
 
-<div> 
+<h1 class="display-1" style="text-align: center; color: rgb(229, 239, 231);"><b>ORDENADORES DISPONIBLES</b></h1>
+<div style="display: flex; justify-content: center;">
+<table class="table" style="width: fit-content; font-size: large;">
+    <thead>
+        <tr>
+            
+            <th><input type="button" class="btn btn primary" value="Número De Serie" (click)="buscarOrdenados('numserie')"></th>
+            <th><input type="button" class="btn btn primary" value="Marca" (click)="buscarOrdenados('marca')"></th>
+            <th><input type="button" class="btn btn primary" value="Modelo" (click)="buscarOrdenados('modelo')"></th>
+            <th><input type="button" class="btn btn primary" value="Precio" (click)="buscarOrdenados('precio')"></th>
+        </tr>
+    </thead>
+    <tbody>
+@for (ordenador of listaOrdenador; track ordenador.numserie){
+    <tr>
+    <td>{{ordenador.numserie}} </td>
+    <td>{{ordenador.marca}}</td>
+    <td>{{ordenador.modelo}}</td>
+    <td>{{ordenador.precio}}</td>
+    <td><input type="button" class="btn btn-danger" value="Borrar" (click)="borrar(ordenador.numserie)"></td>
 
-    <p>listaordenador works!</p>
-
-
-
+    
+</tr>
+}
+</tbody>
+</table>
 </div>
-
-
-
-
-
-
+<br>
+<a style="display: flex; justify-content: center;" routerLink="/formularioordenador">Ir al formulario</a>

@@ -25,15 +25,15 @@ export class OrdenadorRestService {
   }
 
 
-  public borrar(numserie:number): Observable<Ordenador> {
+  public borrar (numserie:number): Observable<Ordenador> {
 
-    return this.httpClient.delete<Ordenador>('http://localhost:8080/webapi/ordenador/${numserie}');
+    return this.httpClient.delete<Ordenador>(`http://localhost:8080/webapi/ordenador/${numserie}`);
 
   }
 
-  public buscarOrdenados(campo:string, direccion:string): Observable<Ordenador[]>{
+  public buscarOrdenados(campo: string, direccion: string): Observable<Ordenador[]>{
 
-    const url = 'http://localhost:8080/webapi/ordenador/campo/${campo}/direccion/${direccion}';
+    const url = `http://localhost:8080/webapi/ordenador/campo/${campo}/direccion/${direccion}`;
 
     return this.httpClient.get<Ordenador[]> (url) ;
   }

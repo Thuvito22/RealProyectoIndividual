@@ -38,6 +38,7 @@ public class OrdenadorRestController {
     ordenadorRepository.insertar(ordenador);
  }
  @DeleteMapping ("/{numserie}")
+ @CrossOrigin(origins = "http://localhost:4200")
  public void borrar(@PathVariable int numserie) {
    ordenadorRepository.borrar(numserie);
  }

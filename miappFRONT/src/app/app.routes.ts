@@ -4,7 +4,7 @@ import { ListaordenadorComponent } from './listaordenador/listaordenador.compone
 
 export const routes: Routes = [
 
-    { path: "listaordenadores", component: ListaordenadorComponent },
+    { path: "listaordenador", component: ListaordenadorComponent },
     { path: "formularioordenador", component: FormularioordenadorComponent },
     { path: "", component: ListaordenadorComponent }
 
