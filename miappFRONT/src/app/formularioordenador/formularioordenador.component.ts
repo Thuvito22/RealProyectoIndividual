@@ -15,8 +15,13 @@ import Swal from 'sweetalert2';
 export class FormularioordenadorComponent {
 
   ordenador: Ordenador = {} as Ordenador; 
+  marcas = ['HP', 'Dell', 'Lenovo', 'Asus', 'Acer'];
+  modelos = ['Modelo A', 'Modelo B', 'Modelo C', 'Modelo D', 'Modelo E'];
 
-  constructor(private readonly ordenadorRestService: OrdenadorRestService, private readonly router: Router) {}
+  constructor(
+    private readonly ordenadorRestService: OrdenadorRestService,
+    private readonly router: Router
+  ) {}
 
   public insertar(): void {
     if (this.ordenador.numserie < 0) {
