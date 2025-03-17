@@ -16,13 +16,12 @@ export const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [
-    AppComponent // Solo declara AppComponent aquí
-  ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(routes), // Solo RouterModule para rutas
+    FormularioordenadorComponent, // Componente standalone importado aquí
+    ListaordenadorComponent,      // Componente standalone importado aquí
   ],
   providers: [],
   bootstrap: [AppComponent]
