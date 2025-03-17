@@ -44,7 +44,7 @@ export class FormularioordenadorComponent {
     if (marcaSeleccionada && this.modelosPorMarca[marcaSeleccionada]) {
       this.modelos = this.modelosPorMarca[marcaSeleccionada];
     } else {
-      this.modelos = [];  // Si no hay marca seleccionada, no mostrar modelos
+      this.modelos = [];  // Si no hay marca seleccionada, no mostrar modelos y se queda en blanco
     }
   }
 

@@ -8,40 +8,46 @@
       <div class="row">
         <!-- Campo Número de Serie -->
         <div class="col-md-6 mb-3">
-          <label for="numserie" class="form-label">Número de Serie</label>
-          <input type="number" class="form-control" id="numserie" name="numserie" [(ngModel)]="ordenador.numserie" placeholder="Ingrese el número de serie" required min="0">
+          <label for="numserie" class="form-label">Número de Serie <span class="text-danger">*</span></label>
+          <input type="number" class="form-control shadow-sm" id="numserie" name="numserie" [(ngModel)]="ordenador.numserie" placeholder="Ingrese el número de serie" required min="0" [ngClass]="{'is-invalid': !ordenador.numserie}">
+          <div class="invalid-feedback">Este campo es obligatorio y debe ser mayor o igual a cero.</div>
         </div>
 
         <!-- Campo Marca -->
         <div class="col-md-6 mb-3">
-          <label for="marca" class="form-label">Marca</label>
-          <select class="form-select" id="marca" name="marca" [(ngModel)]="ordenador.marca" (change)="onMarcaChange()" required>
+          <label for="marca" class="form-label">Marca <span class="text-danger">*</span></label>
+          <select class="form-select shadow-sm" id="marca" name="marca" [(ngModel)]="ordenador.marca" required (change)="onMarcaChange()" [ngClass]="{'is-invalid': !ordenador.marca}">
             <option value="" disabled selected>Seleccione la marca</option>
             <option *ngFor="let marca of marcas" [value]="marca">{{ marca }}</option>
           </select>
+          <div class="invalid-feedback">Este campo es obligatorio.</div>
         </div>
       </div>
 
       <div class="row">
         <!-- Campo Modelo -->
         <div class="col-md-6 mb-3">
-          <label for="modelo" class="form-label">Modelo</label>
-          <select class="form-select" id="modelo" name="modelo" [(ngModel)]="ordenador.modelo" required [disabled]="!modelos.length">
+          <label for="modelo" class="form-label">Modelo <span class="text-danger">*</span></label>
+          <select class="form-select shadow-sm" id="modelo" name="modelo" [(ngModel)]="ordenador.modelo" required [ngClass]="{'is-invalid': !ordenador.modelo}">
             <option value="" disabled selected>Seleccione el modelo</option>
             <option *ngFor="let modelo of modelos" [value]="modelo">{{ modelo }}</option>
           </select>
+          <div class="invalid-feedback">Este campo es obligatorio.</div>
         </div>
 
         <!-- Campo Precio -->
         <div class="col-md-6 mb-3">
-          <label for="precio" class="form-label">Precio</label>
-          <input type="number" class="form-control" id="precio" name="precio" [(ngModel)]="ordenador.precio" placeholder="Ingrese el precio" required min="0">
+          <label for="precio" class="form-label">Precio <span class="text-danger">*</span></label>
+          <input type="number" class="form-control shadow-sm" id="precio" name="precio" [(ngModel)]="ordenador.precio" placeholder="Ingrese el precio" required min="0" [ngClass]="{'is-invalid': !ordenador.precio}">
+          <div class="invalid-feedback">Este campo es obligatorio y debe ser mayor o igual a cero.</div>
         </div>
       </div>
 
       <!-- Botón de Guardar -->
       <div class="d-flex justify-content-center mt-4">
-        <button type="submit" class="btn btn-success btn-lg px-5 py-2">Guardar</button>
+        <button type="submit" class="btn btn-success btn-lg px-5 py-2 shadow-sm" [disabled]="!ordenador.numserie || !ordenador.marca || !ordenador.modelo || !ordenador.precio">
+          <i class="fas fa-save"></i> Guardar
+        </button>
       </div>
     </form>
 
@@ -52,7 +58,10 @@
 
     <!-- Botón de Volver -->
     <div class="d-flex justify-content-center mt-4">
-      <button (click)="volver()" class="btn btn-secondary btn-lg px-5 py-2">Volver</button>
+      <button (click)="volver()" class="btn btn-secondary btn-lg px-5 py-2 shadow-sm">
+        <i class="fas fa-arrow-left"></i> Volver
+      </button>
     </div>
   </div>
 </div>
+
