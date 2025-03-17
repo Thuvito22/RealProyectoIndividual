@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class OrdenadorRestService {
 
-  constructor(private httpClient:HttpClient) { 
+  constructor(private readonly httpClient:HttpClient) {   //meto propiedad de readonly para futuro no cambiar httpclient  asi no se puede reasignar en el codigo 
 
 
   }
