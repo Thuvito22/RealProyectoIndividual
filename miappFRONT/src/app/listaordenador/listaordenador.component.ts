@@ -7,41 +7,43 @@ import { OrdenadorRestService } from '../ordenador-rest.service';
   selector: 'app-listaordenador',
   imports: [RouterLink],
   templateUrl: './listaordenador.component.html',
-  styleUrl: './listaordenador.component.scss'
+  styleUrls: ['./listaordenador.component.scss'] // Corregido styleUrls
 })
 export class ListaordenadorComponent {
 
-  listaOrdenador: Ordenador[]=[];
+  listaOrdenador: Ordenador[] = [];
   campoSeleccionado: string = '';
   direccionSeleccionada: 'ASC' | 'DESC' = 'ASC';
-    constructor (private ordenadorRestService:OrdenadorRestService){
-  
-      ordenadorRestService.buscarTodos().subscribe((datos)=>{
-        this.listaOrdenador=datos;
-      })
-    }
-    public borrar (numserie:number){
-      
-  
-    this.ordenadorRestService.borrar(numserie).subscribe(()=>{
-      this.ordenadorRestService.buscarTodos().subscribe((datos)=>{
-  
-        this.listaOrdenador=datos;
-      })
-  });
-}
-public buscarOrdenados(campo: string) {
-  if (this.campoSeleccionado === campo) {
-    this.direccionSeleccionada = this.direccionSeleccionada === 'ASC' ? 'DESC' : 'ASC';
-  } else {
-    this.campoSeleccionado = campo;
-    this.direccionSeleccionada = 'ASC';
+
+  constructor(private readonly ordenadorRestService: OrdenadorRestService) {
+    this.ordenadorRestService.buscarTodos().subscribe((datos) => {
+      console.log(datos); // Verifica los datos en la consola
+      this.listaOrdenador = datos;
+    });
   }
 
-  this.ordenadorRestService.buscarOrdenados(campo, this.direccionSeleccionada).subscribe(data => {
-    this.listaOrdenador = data;
-  });
+  public borrar(numserie: number): void {
+    this.ordenadorRestService.borrar(numserie).subscribe(() => {
+      this.ordenadorRestService.buscarTodos().subscribe((datos) => {
+        this.listaOrdenador = datos;
+      });
+    });
+  }
+
+  public buscarOrdenados(campo: string): void {
+    if (this.campoSeleccionado === campo) {
+      this.direccionSeleccionada = this.direccionSeleccionada === 'ASC' ? 'DESC' : 'ASC';
+    } else {
+      this.campoSeleccionado = campo;
+      this.direccionSeleccionada = 'ASC';
+    }
+
+    this.ordenadorRestService.buscarOrdenados(campo, this.direccionSeleccionada).subscribe(data => {
+      this.listaOrdenador = data;
+    });
+  }
+
+  trackByNumSerie(index: number, ordenador: Ordenador): number {
+    return ordenador.numserie;
+  }
 }
-    
-} 
-  
