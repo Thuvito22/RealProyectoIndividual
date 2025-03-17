@@ -14,7 +14,7 @@ export const routes: Routes = [
   { path: 'formularioordenador', component: FormularioordenadorComponent },
   { path: '', redirectTo: 'listaordenador', pathMatch: 'full' }
 ];
-
+///////////////////// PROBLEMAS CON ESTO, HAY QUE QUITAR  EL STANDALONE MAS ADELANTE 
 @NgModule({
   imports: [
     BrowserModule,
