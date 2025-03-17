@@ -1,8 +1,11 @@
 
 
-
-POST http://localhost:3306/webapi/ordenador
+### este me sale un 400 porque no estoy metiendo los objetos
+### json en el content type. (ejemplo)
+POST http://localhost:8080/webapi/ordenador
 Content-Type: application/json
+
+
 
 ###
 ######## Buscartodos
@@ -10,7 +13,9 @@ GET http://localhost:8080/webapi/ordenador
 
 
 
-######## Insetar
+######## Insetar Cuidado con la coma del final porque 
+### porque no va ningun parametro siguiente 
+### en el POST meter el objeto json con sus parametros
 POST http://localhost:8080/webapi/ordenador
 content-type: application/json
 
@@ -18,12 +23,12 @@ content-type: application/json
 "numserie": "06", 
 "marca": "prueba1", 
 "modelo": "prueba1", 
-"precio": 1999.99, 
+"precio": 1999.99
 }
 
 ######### Borrar
 ### se puede cambiar los paramentros en la url cambiando precio por marca por ejemplo
-por marca por ejemplo
+
 DELETE http://localhost:8080/webapi/ordenador/04
 
 ######### BuscarOrdenados DESCENDENTE
