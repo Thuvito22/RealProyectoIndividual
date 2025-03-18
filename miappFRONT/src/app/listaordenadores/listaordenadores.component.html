@@ -1,0 +1,35 @@
+<body class="bg-light">
+  <h1 class="display-1" style="text-align: center; color: rgb(17, 30, 147);"><b>ORDENADORES DISPONIBLES</b></h1>
+  
+  <div style="display: flex; flex-direction: column; align-items: center;">
+    <!-- Tabla con los ordenadores disponibles -->
+    <table class="table table-striped table-hover table-bordered border-primary" style="width: fit-content; font-size: large;">
+      <thead>
+        <tr>
+          <th><input type="button" class="btn btn-warning" value="Número De Serie" (click)="buscarOrdenados('numserie')"></th>
+          <th><input type="button" class="btn btn-primary" value="Marca" (click)="buscarOrdenados('marca')"></th>
+          <th><input type="button" class="btn btn-warning" value="Modelo" (click)="buscarOrdenados('modelo')"></th>
+          <th><input type="button" class="btn btn-primary" value="Precio" (click)="buscarOrdenados('precio')"></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ordenador of listaOrdenadores; trackBy: trackOrdenador">
+          <td>{{ ordenador.numserie }}</td>
+          <td>{{ ordenador.marca }}</td>
+          <td>{{ ordenador.modelo }}</td>
+          <td>{{ ordenador.precio }}</td>
+          <td>
+            <input type="button" class="btn btn-danger" value="Borrar" (click)="confirmarBorrado(ordenador.numserie)">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <!-- Botón para ir al formulario de nuevo ordenador -->
+    <button [routerLink]="['/formularioordenador']" class="btn btn-primary">
+      Ir al formulario
+    </button>
+    
+  </div>
+</body>
