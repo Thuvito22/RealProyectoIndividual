@@ -13,26 +13,26 @@ body {
     justify-content: center;
     align-items: center;
     background-attachment: fixed;
-  }
-  
-  @keyframes gradientBG {
+}
+
+@keyframes gradientBG {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
-  }
-  
-  /* Estilos del contenedor principal */
-  .container {
+}
+
+/* Estilos del contenedor principal */
+.container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
     margin-top: 50px; /* Bajar un poco el formulario */
-  }
-  
-  /* Estilos del formulario */
-  .custom-card {
+}
+
+/* Estilos del formulario */
+.custom-card {
     background-color: #ffffff;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
@@ -41,57 +41,122 @@ body {
     width: 100%;
     text-align: center;
     transition: transform 0.3s ease-in-out;
-  }
-  
-  .custom-card:hover {
+}
+
+.custom-card:hover {
     transform: translateY(-5px);
-  }
-  
-  /* Título del formulario */
-  .custom-title {
+}
+
+/* Título del formulario */
+.custom-title {
     font-size: 2rem;
     color: #ff7f50;
     font-weight: bold;
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
     margin-bottom: 30px;
-  }
-  
-  /* Botones con separación */
-  .btn-container {
+}
+
+/* Botones con separación */
+.btn-container {
     display: flex;
     justify-content: center;
     gap: 20px;
     margin-top: 20px;
-  }
-  
-  .btn-primary {
+}
+
+.btn-primary {
     background-color: #ff7f50;
     border-color: #ff7f50;
-  }
-  
-  .btn-primary:hover {
+}
+
+.btn-primary:hover {
     background-color: #ff6a00;
     border-color: #ff6a00;
-  }
-  
-  .btn-secondary {
+}
+
+.btn-secondary {
     background-color: #666;
     border-color: #666;
-  }
-  
-  .btn-secondary:hover {
+}
+
+.btn-secondary:hover {
     background-color: #444;
     border-color: #444;
-  }
-  
-  /* Contenedor del logo centrado debajo del formulario */
-  .logo-container {
+}
+
+/* Contenedor del logo centrado debajo del formulario */
+.logo-container {
     text-align: center;
-    margin-top: 30px;
-  }
-  
-  .logo-container img {
-    max-width: 200px;
+    position: fixed; /* Fijar en la parte superior */
+    top: 10px; /* Ajustar la posición vertical para que quede más arriba */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000; /* Asegurar que esté por encima de otros elementos */
+}
+
+.logo-container img {
+    max-width: 150px; /* Ajusta el tamaño del logo */
     height: auto;
-  }
-  
+}
+
+/* Contenedor del título */
+.title-container {
+    margin-top: 100px; /* Ajustar para dejar espacio al logo */
+    margin-bottom: 40px;
+    text-align: center; /* Centrar el contenido */
+    position: fixed; /* Fijar en la parte superior */
+    top: 60px; /* Ajustar la posición vertical */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000; /* Asegurar que esté por encima de otros elementos */
+}
+
+/* Título de la página */
+.custom-title {
+    font-size: 3rem;
+    color: #4a4a4a; /* Gris oscuro para mejor visibilidad con el fondo */
+    font-weight: bold;
+    text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.4); /* Más sombra para más profundidad */
+}
+
+/* Contenedor de la tabla */
+.table-container {
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    width: 100%;
+    max-width: 1000px;
+    padding: 40px;
+    margin-top: 150px; /* Ajustar para dejar espacio al título fijo */
+    overflow-y: auto; /* Permitir desplazamiento vertical */
+    height: calc(100vh - 200px); /* Ajustar la altura para dejar espacio al título y logo */
+}
+
+/* Estilo de las celdas de la tabla */
+td, th {
+    text-align: center; /* Centrar tanto los valores como los encabezados */
+}
+
+/* Botones en la tabla */
+.btn-custom {
+    margin-bottom: 10px;
+}
+
+/* Botón de ir al formulario */
+.form-button {
+    background-color: #ff7f50;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.form-button:hover {
+    background-color: #ff6a00;
+}

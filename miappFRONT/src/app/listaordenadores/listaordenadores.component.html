@@ -1,35 +1,131 @@
-<body class="bg-light">
-  <h1 class="display-1" style="text-align: center; color: rgb(17, 30, 147);"><b>ORDENADORES DISPONIBLES</b></h1>
-  
-  <div style="display: flex; flex-direction: column; align-items: center;">
-    <!-- Tabla con los ordenadores disponibles -->
-    <table class="table table-striped table-hover table-bordered border-primary" style="width: fit-content; font-size: large;">
-      <thead>
-        <tr>
-          <th><input type="button" class="btn btn-warning" value="Número De Serie" (click)="buscarOrdenados('numserie')"></th>
-          <th><input type="button" class="btn btn-primary" value="Marca" (click)="buscarOrdenados('marca')"></th>
-          <th><input type="button" class="btn btn-warning" value="Modelo" (click)="buscarOrdenados('modelo')"></th>
-          <th><input type="button" class="btn btn-primary" value="Precio" (click)="buscarOrdenados('precio')"></th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let ordenador of listaOrdenadores; trackBy: trackOrdenador">
-          <td>{{ ordenador.numserie }}</td>
-          <td>{{ ordenador.marca }}</td>
-          <td>{{ ordenador.modelo }}</td>
-          <td>{{ ordenador.precio }}</td>
-          <td>
-            <input type="button" class="btn btn-danger" value="Borrar" (click)="confirmarBorrado(ordenador.numserie)">
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <br>
-    <!-- Botón para ir al formulario de nuevo ordenador -->
-    <button [routerLink]="['/formularioordenador']" class="btn btn-primary">
-      Ir al formulario
-    </button>
-    
-  </div>
-</body>
+
+<style>
+  /* Fondo general de la página */
+  body {
+    background: linear-gradient(to right, #ff9a8b, #ff6a00);
+    color: #5a2e05;
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    margin: 0;
+    background-attachment: fixed;
+    position: relative;
+  }
+
+  /* Contenedor del logo */
+  .logo-container {
+    text-align: center; /* Centrar el logo */
+    position: fixed; /* Fijar en la parte superior */
+    top: 10px; /* Ajustar la posición vertical para que quede más arriba */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000; /* Asegurar que esté por encima de otros elementos */
+  }
+
+  .logo-container img {
+    max-width: 150px; /* Ajusta el tamaño del logo */
+    height: auto;
+  }
+
+  /* Contenedor del título */
+  .title-container {
+    margin-top: 100px; /* Ajustar para dejar espacio al logo */
+    margin-bottom: 40px;
+    text-align: center; /* Centrar el contenido */
+    position: fixed; /* Fijar en la parte superior */
+    top: 60px; /* Ajustar la posición vertical */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000; /* Asegurar que esté por encima de otros elementos */
+  }
+
+  /* Título de la página */
+  .custom-title {
+    font-size: 3rem;
+    color: #4a4a4a; /* Gris oscuro para mejor visibilidad con el fondo */
+    font-weight: bold;
+    text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.4); /* Más sombra para más profundidad */
+  }
+
+  /* Contenedor del formulario */
+  .form-container {
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    width: 100%;
+    max-width: 1000px;
+    padding: 40px;
+    margin-top: 250px; /* Ajustar para dejar más espacio al título fijo */
+    overflow-y: auto; /* Permitir desplazamiento vertical */
+    height: calc(100vh - 250px); /* Ajustar la altura para dejar espacio al título y logo */
+  }
+
+  /* Estilo de las celdas de la tabla */
+  td, th {
+    text-align: center; /* Centrar tanto los valores como los encabezados */
+  }
+
+  /* Botones en la tabla */
+  .btn-custom {
+    margin-bottom: 10px;
+  }
+
+  /* Botón de ir al formulario */
+  .form-button {
+    background-color: #ff7f50;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  .form-button:hover {
+    background-color: #ff6a00;
+  }
+</style>
+
+<!-- Contenedor del logo -->
+<div class="logo-container">
+  <img src="assets/logo1.png" alt="Logo">
+</div>
+
+<!-- Contenedor del título -->
+<div class="title-container">
+  <h1 class="custom-title">Ordenadores Disponibles</h1>
+</div>
+
+<div class="form-container">
+  <!-- Tabla con los ordenadores disponibles -->
+  <table class="table table-striped table-hover table-bordered border-primary" style="font-size: large;">
+    <thead>
+      <tr>
+        <th><input type="button" class="btn btn-warning btn-custom" value="Número De Serie" (click)="buscarOrdenados('numserie')"></th>
+        <th><input type="button" class="btn btn-primary btn-custom" value="Marca" (click)="buscarOrdenados('marca')"></th>
+        <th><input type="button" class="btn btn-warning btn-custom" value="Modelo" (click)="buscarOrdenados('modelo')"></th>
+        <th><input type="button" class="btn btn-primary btn-custom" value="Precio" (click)="buscarOrdenados('precio')"></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ordenador of listaOrdenadores; trackBy: trackOrdenador">
+        <td>{{ ordenador.numserie }}</td>
+        <td>{{ ordenador.marca }}</td>
+        <td>{{ ordenador.modelo }}</td>
+        <td>{{ ordenador.precio }}</td>
+        <td>
+          <input type="button" class="btn btn-danger btn-custom" value="Borrar" (click)="confirmarBorrado(ordenador.numserie)">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <!-- Botón para ir al formulario de nuevo ordenador -->
+  <button [routerLink]="['/formularioordenador']" class="form-button">
+    Ir al formulario
+  </button>
+</div>
