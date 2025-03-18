@@ -1,9 +1,9 @@
 /* Fondo general de la página con degradado animado */
 body {
-    background: linear-gradient(45deg, #ffcc00, #ff9900, #d48a00);
+    background: linear-gradient(45deg, #e9e7dd, #d3c1a2, #dbbc8c); /* Cambiar a colores del logo */
     background-size: 300% 300%;
     animation: gradientBG 8s ease infinite;
-    color: #5a2e05;
+    color: #5c5444; /* Color del texto */
     font-family: 'Arial', sans-serif;
     height: 100vh;
     margin: 0;
@@ -33,7 +33,7 @@ body {
 
 /* Estilos del formulario */
 .custom-card {
-    background-color: #ffffff;
+    background-color: #e9e7dd; /* Fondo del formulario */
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     padding: 40px;
@@ -50,7 +50,7 @@ body {
 /* Título del formulario */
 .custom-title {
     font-size: 2rem;
-    color: #ff7f50;
+    color: #f8a026; /* Color del título */
     font-weight: bold;
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
     margin-bottom: 30px;
@@ -65,23 +65,23 @@ body {
 }
 
 .btn-primary {
-    background-color: #ff7f50;
-    border-color: #ff7f50;
+    background-color: #f8a026; /* Color del botón primario */
+    border-color: #f8a026;
 }
 
 .btn-primary:hover {
-    background-color: #ff6a00;
-    border-color: #ff6a00;
+    background-color: #f9da65; /* Color del botón primario al pasar el ratón */
+    border-color: #f9da65;
 }
 
 .btn-secondary {
-    background-color: #666;
-    border-color: #666;
+    background-color: #7c7164; /* Color del botón secundario */
+    border-color: #7c7164;
 }
 
 .btn-secondary:hover {
-    background-color: #444;
-    border-color: #444;
+    background-color: #744c1c; /* Color del botón secundario al pasar el ratón */
+    border-color: #744c1c;
 }
 
 /* Contenedor del logo centrado debajo del formulario */
@@ -92,6 +92,8 @@ body {
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000; /* Asegurar que esté por encima de otros elementos */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Añadir sombra al logo */
+    border-radius: 10px; /* Añadir bordes redondeados al logo */
 }
 
 .logo-container img {
@@ -114,14 +116,14 @@ body {
 /* Título de la página */
 .custom-title {
     font-size: 3rem;
-    color: #4a4a4a; /* Gris oscuro para mejor visibilidad con el fondo */
+    color: #f8a026; /* Color del título */
     font-weight: bold;
     text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.4); /* Más sombra para más profundidad */
 }
 
 /* Contenedor de la tabla */
 .table-container {
-    background-color: #ffffff;
+    background-color: #e9e7dd; /* Fondo de la tabla */
     border-radius: 20px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
     overflow: hidden;
@@ -145,7 +147,7 @@ td, th {
 
 /* Botón de ir al formulario */
 .form-button {
-    background-color: #ff7f50;
+    background-color: #f8a026; /* Color del botón */
     color: #ffffff;
     border: none;
     padding: 10px 20px;
@@ -158,5 +160,5 @@ td, th {
 }
 
 .form-button:hover {
-    background-color: #ff6a00;
+    background-color: #f9da65; /* Color del botón al pasar el ratón */
 }

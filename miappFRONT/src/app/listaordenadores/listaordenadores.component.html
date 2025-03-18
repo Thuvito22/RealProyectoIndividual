@@ -1,33 +1,46 @@
-
 <style>
   /* Fondo general de la página */
   body {
-    background: linear-gradient(to right, #ff9a8b, #ff6a00);
-    color: #5a2e05;
+    background: linear-gradient(45deg, #e9e7dd, #d3c1a2, #dbbc8c); /* Cambiar a colores del logo */
+    background-size: 300% 300%;
+    animation: gradientBG 8s ease infinite;
+    color: #5c5444; /* Color del texto */
     font-family: 'Arial', sans-serif;
     height: 100vh;
     margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-attachment: fixed;
-    position: relative;
-  }
+}
 
-  /* Contenedor del logo */
-  .logo-container {
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Contenedor del logo */
+.logo-container {
     text-align: center; /* Centrar el logo */
     position: fixed; /* Fijar en la parte superior */
     top: 10px; /* Ajustar la posición vertical para que quede más arriba */
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000; /* Asegurar que esté por encima de otros elementos */
-  }
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Añadir sombra al logo */
+    border-radius: 10px; /* Añadir bordes redondeados al logo */
+}
 
-  .logo-container img {
+.logo-container img {
     max-width: 150px; /* Ajusta el tamaño del logo */
     height: auto;
-  }
+}
 
-  /* Contenedor del título */
-  .title-container {
+/* Contenedor del título */
+.title-container {
     margin-top: 100px; /* Ajustar para dejar espacio al logo */
     margin-bottom: 40px;
     text-align: center; /* Centrar el contenido */
@@ -36,19 +49,19 @@
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000; /* Asegurar que esté por encima de otros elementos */
-  }
+}
 
-  /* Título de la página */
-  .custom-title {
+/* Título de la página */
+.custom-title {
     font-size: 3rem;
-    color: #4a4a4a; /* Gris oscuro para mejor visibilidad con el fondo */
+    color: #f8a026; /* Color del título */
     font-weight: bold;
     text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.4); /* Más sombra para más profundidad */
-  }
+}
 
-  /* Contenedor del formulario */
-  .form-container {
-    background-color: #ffffff;
+/* Contenedor del formulario */
+.form-container {
+    background-color: #e9e7dd; /* Fondo del formulario */
     border-radius: 20px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
     overflow: hidden;
@@ -58,21 +71,29 @@
     margin-top: 250px; /* Ajustar para dejar más espacio al título fijo */
     overflow-y: auto; /* Permitir desplazamiento vertical */
     height: calc(100vh - 250px); /* Ajustar la altura para dejar espacio al título y logo */
-  }
+}
 
-  /* Estilo de las celdas de la tabla */
-  td, th {
+/* Estilo de las celdas de la tabla */
+td, th {
     text-align: center; /* Centrar tanto los valores como los encabezados */
-  }
+}
 
-  /* Botones en la tabla */
-  .btn-custom {
+/* Botones en la tabla */
+.btn-custom {
     margin-bottom: 10px;
-  }
+    background-color: #f8a026; /* Color de los botones */
+    border-color: #f8a026;
+    color: #ffffff;
+}
 
-  /* Botón de ir al formulario */
-  .form-button {
-    background-color: #ff7f50;
+.btn-custom:hover {
+    background-color: #f9da65; /* Color de los botones al pasar el ratón */
+    border-color: #f9da65;
+}
+
+/* Botón de ir al formulario */
+.form-button {
+    background-color: #f8a026; /* Color del botón */
     color: #ffffff;
     border: none;
     padding: 10px 20px;
@@ -82,11 +103,11 @@
     display: block;
     margin-top: 20px;
     width: 100%;
-  }
+}
 
-  .form-button:hover {
-    background-color: #ff6a00;
-  }
+.form-button:hover {
+    background-color: #f9da65; /* Color del botón al pasar el ratón */
+}
 </style>
 
 <!-- Contenedor del logo -->
