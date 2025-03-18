@@ -1,1 +1,97 @@
-/* You can add global styles to this file, and also import other style files */
+/* Fondo general de la página con degradado animado */
+body {
+    background: linear-gradient(45deg, #ffcc00, #ff9900, #d48a00);
+    background-size: 300% 300%;
+    animation: gradientBG 8s ease infinite;
+    color: #5a2e05;
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-attachment: fixed;
+  }
+  
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  /* Estilos del contenedor principal */
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 50px; /* Bajar un poco el formulario */
+  }
+  
+  /* Estilos del formulario */
+  .custom-card {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .custom-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Título del formulario */
+  .custom-title {
+    font-size: 2rem;
+    color: #ff7f50;
+    font-weight: bold;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+  }
+  
+  /* Botones con separación */
+  .btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .btn-primary {
+    background-color: #ff7f50;
+    border-color: #ff7f50;
+  }
+  
+  .btn-primary:hover {
+    background-color: #ff6a00;
+    border-color: #ff6a00;
+  }
+  
+  .btn-secondary {
+    background-color: #666;
+    border-color: #666;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #444;
+    border-color: #444;
+  }
+  
+  /* Contenedor del logo centrado debajo del formulario */
+  .logo-container {
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  .logo-container img {
+    max-width: 200px;
+    height: auto;
+  }
+  

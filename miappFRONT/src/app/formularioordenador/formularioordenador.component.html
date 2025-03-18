@@ -1,97 +1,54 @@
 <style>
-  /* Fondo general de la página con animación */
-  body {
-    background: linear-gradient(45deg, #ffcc00, #ff9900);
-    background-size: 400% 400%;
-    animation: gradientBG 10s ease infinite;
-    color: #5a2e05;
-    font-family: 'Arial', sans-serif;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    background-attachment: fixed;
-  }
-
-  @keyframes gradientBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-
-  /* Contenedor del logo centrado arriba */
-  .logo-container {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-
-  .logo-container img {
-    max-width: 200px;
-    height: auto;
-  }
-
-  /* Estilos del formulario */
+  /* Personalización de la tarjeta */
   .custom-card {
-    background-color: #ffffff;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    padding: 40px;
-    max-width: 600px;
+    background-color: #f9f9f9; /* Fondo blanco suave */
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    overflow: hidden;
     width: 100%;
-    transition: transform 0.3s ease-in-out;
+    max-width: 600px;
+    padding: 40px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
+  /* Efecto al pasar el ratón sobre la tarjeta */
   .custom-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
   }
 
   /* Título del formulario */
   .custom-title {
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: #ff7f50;
     font-weight: bold;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
-    margin-bottom: 30px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 40px;
   }
 
-  /* Estilos de los botones */
+  /* Estilo de los botones */
+  .btn {
+    transition: background-color 0.3s ease;
+    margin: 10px; /* Separa los botones */
+  }
+
+  .btn:hover {
+    background-color: #ff7f50;
+  }
+
   .btn-container {
     display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 20px;
-  }
-
-  .btn-primary {
-    background-color: #ff7f50;
-    border-color: #ff7f50;
-  }
-
-  .btn-primary:hover {
-    background-color: #ff6a00;
-    border-color: #ff6a00;
-  }
-
-  .btn-secondary {
-    background-color: #666;
-    border-color: #666;
-  }
-
-  .btn-secondary:hover {
-    background-color: #444;
-    border-color: #444;
+    justify-content: center; /* Centra los botones */
+    gap: 20px; /* Espacio entre los botones */
   }
 </style>
 
 <!-- Contenedor del logo -->
 <div class="logo-container">
-  <img src="assets/logo1.png" alt="Logo">
+  <img src="assets/logo1.png" alt="Logo" class="img-fluid">
 </div>
 
-<!-- Contenedor del formulario -->
-<div class="container">
+<div class="container mt-5">
   <div class="card custom-card shadow-lg p-4 rounded">
     <h1 class="text-center custom-title mb-4">Formulario de Ordenador</h1>
 
@@ -100,12 +57,14 @@
       <div class="row">
         <div class="col-md-6 mb-4">
           <label for="numserie" class="form-label">Número de Serie <span class="text-danger">*</span></label>
-          <input type="number" class="form-control" id="numserie" name="numserie" [(ngModel)]="ordenador.numserie" required min="0">
+          <input type="number" class="form-control" id="numserie" name="numserie" [(ngModel)]="ordenador.numserie"
+            required min="0">
         </div>
 
         <div class="col-md-6 mb-4">
           <label for="marca" class="form-label">Marca <span class="text-danger">*</span></label>
-          <select class="form-select" id="marca" name="marca" [(ngModel)]="ordenador.marca" (change)="onMarcaChange()" required>
+          <select class="form-select" id="marca" name="marca" [(ngModel)]="ordenador.marca" (change)="onMarcaChange()"
+            required>
             <option [ngValue]="null" disabled>Seleccione la marca</option>
             <option *ngFor="let marca of marcas" [value]="marca">{{ marca }}</option>
           </select>
@@ -122,11 +81,11 @@
         </div>
         <div class="col-md-6 mb-4">
           <label for="precio" class="form-label">Precio <span class="text-danger">*</span></label>
-          <input type="number" class="form-control" id="precio" name="precio" [(ngModel)]="ordenador.precio" required min="0">
+          <input type="number" class="form-control" id="precio" name="precio" [(ngModel)]="ordenador.precio"
+            required min="0">
         </div>
       </div>
-
-      <!-- Contenedor de botones con separación -->
+      
       <div class="btn-container">
         <button type="submit" class="btn btn-primary">Guardar</button>
         <button type="button" class="btn btn-secondary" (click)="volver()">Volver</button>
